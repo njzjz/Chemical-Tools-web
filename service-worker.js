@@ -29,4 +29,4 @@ workbox.core.skipWaiting();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/https:\/\/cdn\.jsdelivr\.net\/.*/, new workbox.strategies.NetworkFirst({ "cacheName":"cdn-cache","networkTimeoutSeconds":20, plugins: [new workbox.cacheableResponse.Plugin({ statuses: [ 200 ] })] }), 'GET');
+workbox.routing.registerRoute(/https:\/\/cdn\.jsdelivr\.net\/.*/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"cdn-cache", plugins: [] }), 'GET');
